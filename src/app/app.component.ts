@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ProductGridItemComponent } from './components/product-grid-item/product-grid-item.component';
+import { ProductsStorageService } from './services/products-storage.service';
+import { AsyncPipe, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [ProductGridItemComponent, NgFor, AsyncPipe],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'ProductListWithCart';
+export class AppComponent implements OnInit {
+  constructor(public storage: ProductsStorageService) {}
+
+  ngOnInit() {
+    this.storage.loadProducts();
+  }
 }

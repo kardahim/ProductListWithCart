@@ -1,0 +1,16 @@
+.product-btn {
+  background-color: #ffffff;
+  padding: 12px 22px;
+  width: 160px;
+  height: 40px;
+  font-weight: bold;
+  white-space: nowrap;
+
+  outline: none;
+  border: 1px solid var(--rose-400);
+  border-radius: 25px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
