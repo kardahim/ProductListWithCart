@@ -18,6 +18,12 @@
   }
 }
 
+.product__image--selected {
+  img {
+    border: 3px solid var(--red);
+  }
+}
+
 .product__description {
   margin-top: 22px;
 

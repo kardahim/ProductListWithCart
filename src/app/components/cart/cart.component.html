@@ -1,0 +1,71 @@
+<div class="cart">
+  <h2 class="cart__header">
+    Your Cart ({{ cartStorage.productsInCart$ | async }})
+  </h2>
+  <div
+    class="cart__content"
+    *ngIf="
+      ((cartStorage.cartProducts$ | async)?.length || 0) === 0;
+      else productsList
+    "
+  >
+    <div class="cart__content__image-holder">
+      <img src="./assets/images/icons/illustration-empty-cart.svg" alt="" />
+    </div>
+    <span class="cart__content__text">Your added items will appear here</span>
+  </div>
+  <ng-template #productsList>
+    <div class="cart__content">
+      <div
+        class="cart__content__row"
+        *ngFor="let item of cartStorage.cartProducts$ | async"
+      >
+        <div class="cart__content__row__data">
+          <div class="cart__content__row__data__name">
+            {{ item.product.name }}
+          </div>
+          <div class="cart__content__row__data__info">
+            <span class="info__quantity">{{ item.quantity }}x</span>
+            <span class="info__price-each">
+              {{ "@" }} {{ item.product.price.toFixed(2) | currency }}
+            </span>
+            <span class="info__price-total">
+              {{
+                (item.product.price * item.quantity).toFixed(2) | currency
+              }}</span
+            >
+          </div>
+        </div>
+        <div class="cart__content__row__actions">
+          <button (click)="removeFromCart(item.product.id)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="10"
+              height="10"
+              fill="none"
+              viewBox="0 0 10 10"
+            >
+              <path
+                fill="#CAAFA7"
+                d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="cart__content__summary">
+        <div class="cart__content__summary__price">
+          <span>Order Total</span>
+          <span>
+            {{ (cartStorage.totalAmount$ | async)?.toFixed(2) || 0 | currency }}
+          </span>
+        </div>
+        <div class="cart__content__summary__carbon">
+          <img src="./assets/images/icons/icon-carbon-neutral.svg" alt="" />
+          <div>This is a <span>carbon-neutral</span> delivery</div>
+        </div>
+        <button class="cart__content__summary__order-btn">Confirm Order</button>
+      </div>
+    </div>
+  </ng-template>
+</div>

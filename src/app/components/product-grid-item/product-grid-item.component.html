@@ -1,6 +1,8 @@
-<div class="product__image">
+<div class="product__image" [class.product__image--selected]="cartStorage.findById(product.id)">
   <img src="{{ product.image.desktop }}" alt="{{ product.name }}" />
-  <product-button></product-button>
+  <product-button
+    [product]="product"
+  ></product-button>
 </div>
 
 <div class="product__description">

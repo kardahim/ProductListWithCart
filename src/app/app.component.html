@@ -2,9 +2,9 @@
   <h1 class="products__category">Desserts</h1>
   <div class="products__grid">
     <product-grid-item
-      *ngFor="let product of storage.products$ | async"
+      *ngFor="let product of productStorage.products$ | async"
       [product]="product"
     ></product-grid-item>
   </div>
 </main>
-<aside class="cart"></aside>
+<cart></cart>
