@@ -54,6 +54,12 @@ export class CartStorageService {
     this.calculateTotalAmount();
   }
 
+  removeCart() {
+    this.cartProducts = [];
+    this.cartProducts$.next(this.cartProducts);
+    this.calculateTotalAmount();
+  }
+
   public findById(productId: number): ProductInCart | null {
     const existingProduct = this.cartProducts.find(
       (item) => item.product.id === productId

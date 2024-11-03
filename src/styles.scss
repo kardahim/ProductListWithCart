@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body:has(order-dialog) {
+  overflow: hidden;
+}
+
 :root {
   --red: hsl(14, 86%, 42%);
   --dark-red: hsl(15, 86%, 31%);

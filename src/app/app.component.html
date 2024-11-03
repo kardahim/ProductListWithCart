@@ -1,10 +1,18 @@
-<main class="products">
-  <h1 class="products__category">Desserts</h1>
-  <div class="products__grid">
-    <product-grid-item
-      *ngFor="let product of productStorage.products$ | async"
-      [product]="product"
-    ></product-grid-item>
-  </div>
-</main>
-<cart></cart>
+<!-- TODO make this more responsive, adjust cart size-->
+<div class="app-wrapper">
+  <main class="products">
+    <h1 class="products__category">Desserts</h1>
+    <div class="products__grid">
+      <product-grid-item
+        *ngFor="let product of productStorage.products$ | async"
+        [product]="product"
+      ></product-grid-item>
+    </div>
+  </main>
+  <cart (isOrderDialogOpen)="handleOrderDialogOpen($event)"></cart>
+</div>
+
+<order-dialog
+  *ngIf="isOrderDialogOpen"
+  (isOrderDialogOpen)="handleOrderDialogOpen($event)"
+></order-dialog>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CartStorageService } from '../../services/cart/cart-storage.service';
 import { AsyncPipe, CurrencyPipe, NgFor, NgIf } from '@angular/common';
 
@@ -10,9 +10,15 @@ import { AsyncPipe, CurrencyPipe, NgFor, NgIf } from '@angular/common';
   styleUrl: './cart.component.scss',
 })
 export class CartComponent {
+  @Output() isOrderDialogOpen = new EventEmitter<boolean>(false);
+
   constructor(public cartStorage: CartStorageService) {}
 
   removeFromCart(productId: number) {
     this.cartStorage.removeFromCart(productId);
+  }
+
+  openOrderDialog() {
+    this.isOrderDialogOpen.emit(true);
   }
 }
