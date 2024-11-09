@@ -1,3 +1,5 @@
+@import "mixins.scss";
+
 :host {
   position: fixed;
   background: rgba(0, 0, 0, 0.5);
@@ -32,6 +34,8 @@
     overflow: auto;
     max-height: 366px;
     position: relative;
+
+    @include scrollbar;
 
     &__row {
       padding-top: 20px;

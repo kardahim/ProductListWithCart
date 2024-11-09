@@ -17,40 +17,47 @@
   <ng-template #productsList>
     <div class="cart__content">
       <div
-        class="cart__content__row"
-        *ngFor="let item of cartStorage.cartProducts$ | async"
+        class="cart__content__rows"
+        [class.cart__content__rows--scroll]="
+          ((cartStorage.cartProducts$ | async)?.length ?? 0) >= 4
+        "
       >
-        <div class="cart__content__row__data">
-          <div class="cart__content__row__data__name">
-            {{ item.product.name }}
+        <div
+          class="cart__content__row"
+          *ngFor="let item of cartStorage.cartProducts$ | async"
+        >
+          <div class="cart__content__row__data">
+            <div class="cart__content__row__data__name">
+              {{ item.product.name }}
+            </div>
+            <div class="cart__content__row__data__info">
+              <span class="info__quantity">{{ item.quantity }}x</span>
+              <span class="info__price-each">
+                {{ "@" }} {{ item.product.price.toFixed(2) | currency }}
+              </span>
+              <span class="info__price-total">
+                {{
+                  (item.product.price * item.quantity).toFixed(2) | currency
+                }}</span
+              >
+            </div>
           </div>
-          <div class="cart__content__row__data__info">
-            <span class="info__quantity">{{ item.quantity }}x</span>
-            <span class="info__price-each">
-              {{ "@" }} {{ item.product.price.toFixed(2) | currency }}
-            </span>
-            <span class="info__price-total">
-              {{
-                (item.product.price * item.quantity).toFixed(2) | currency
-              }}</span
-            >
+          <div class="cart__content__row__actions">
+            <button (click)="removeFromCart(item.product.id)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="10"
+                height="10"
+                fill="none"
+                viewBox="0 0 10 10"
+              >
+                <path
+                  fill="#CAAFA7"
+                  d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
+                />
+              </svg>
+            </button>
           </div>
-        </div>
-        <div class="cart__content__row__actions">
-          <button (click)="removeFromCart(item.product.id)">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="10"
-              height="10"
-              fill="none"
-              viewBox="0 0 10 10"
-            >
-              <path
-                fill="#CAAFA7"
-                d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
-              />
-            </svg>
-          </button>
         </div>
       </div>
       <div class="cart__content__summary">
