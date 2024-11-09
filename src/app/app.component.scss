@@ -1,7 +1,9 @@
 :host {
   min-height: 100vh;
   min-height: 100dvh;
+
   display: flex;
+  justify-content: center;
 
   font-family: "RedHatText";
   color: var(--rose-900);
@@ -12,11 +14,18 @@
   display: flex;
   gap: 27px;
   width: 100%;
-  padding: 77px 100px;
+  padding: 77px 0px;
+  flex-wrap: wrap;
+  width: 90%;
+  overflow: hidden;
 }
 
 .products {
-  flex: 2.5;
+  flex: 3;
+
+  @media screen and (min-width: 600px) {
+    min-width: 500px;
+  }
 
   &__category {
     margin-bottom: 36px;
@@ -44,4 +53,5 @@
 
 cart {
   flex: 1;
+  min-width: 380px;
 }
