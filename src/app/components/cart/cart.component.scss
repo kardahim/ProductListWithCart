@@ -1,5 +1,4 @@
 @import "mixins.scss";
-// TODO add overflow auto and max height (similar to order-dialog content)
 // TODO move clear row btn higher
 .cart {
   background-color: #ffffff;
@@ -89,6 +88,8 @@
           display: flex;
           justify-content: center;
           align-items: center;
+
+          transform: translateY(-15px);
 
           svg path {
             transition: 0.3s;
