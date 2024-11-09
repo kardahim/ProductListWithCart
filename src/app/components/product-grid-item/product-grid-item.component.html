@@ -1,8 +1,13 @@
-<div class="product__image" [class.product__image--selected]="cartStorage.findById(product.id)">
-  <img src="{{ product.image.desktop }}" alt="{{ product.name }}" />
-  <product-button
-    [product]="product"
-  ></product-button>
+<div
+  class="product__image"
+  [class.product__image--selected]="cartStorage.findById(product.id)"
+>
+  <picture>
+    <source media="(min-width: 769px)" srcset="{{ product.image.desktop }}" />
+    <source media="(min-width: 426px)" srcset="{{ product.image.tablet }}" />
+    <img src="{{ product.image.mobile }}" alt="{{ product.name }}" />
+  </picture>
+  <product-button [product]="product"></product-button>
 </div>
 
 <div class="product__description">
