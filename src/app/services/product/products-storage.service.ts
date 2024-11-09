@@ -8,7 +8,7 @@ import { Product } from '../../models/Product';
 })
 export class ProductsStorageService {
   readonly products$: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
-  readonly productsLoading$: BehaviorSubject<Boolean> = new BehaviorSubject<Boolean>(false);
+  readonly productsLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private api: ProductsApiService) {}
 
