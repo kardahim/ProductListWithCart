@@ -1,27 +1,26 @@
-# ProductListWithCart
+# Frontend Mentor - Product list with cart
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.9.
+![Design preview for the Product list with cart - 1440px](docs/desktop-1440px.png)
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Thanks for checking out this front-end coding challenge. This challenge comes from [Frontend Mentor](https://www.frontendmentor.io). The project provides a list of products with a cart. In addition, the order confirmation appears in a order dialog.
 
-## Code scaffolding
+### Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Users can:
 
-## Build
+- Add items to the cart and remove them
+- Increase/decrease the number of items in the cart
+- See an order confirmation modal when they click "Confirm Order"
+- Reset their selections when they click "Start New Order"
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Technologies
 
-## Running unit tests
+I used:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular 18.2.0
+- Sass (scss)
+- BEM methodology
