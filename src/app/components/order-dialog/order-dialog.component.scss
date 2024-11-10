@@ -9,6 +9,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 600px) {
+    align-items: flex-end;
+  }
 }
 
 .order__card {
@@ -18,6 +22,10 @@
   height: 687px;
   padding: 40px;
   position: relative;
+
+  @media screen and (max-width: 600px) {
+    padding: 40px 20px;
+  }
 
   &__header {
     &__text {

@@ -18,6 +18,10 @@
   flex-wrap: wrap;
   width: 90%;
   overflow: hidden;
+
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+  }
 }
 
 .products {
@@ -54,4 +58,8 @@
 cart {
   flex: 1;
   min-width: 380px;
+
+  @media screen and (max-width: 450px) {
+    min-width: 0;
+  }
 }
